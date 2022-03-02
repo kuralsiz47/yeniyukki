@@ -232,9 +232,9 @@ async def initiate_bot():
             console.print("┌ [red] Git Güncelleştirmelerini Denetleme!")
             repo = Repo.init()
             if "origin" in repo.remotes:
-                origin = repo.remote("origin")
+                origin = repo.remote("master")
             else:
-                origin = repo.create_remote("origin", UPSTREAM_REPO)
+                origin = repo.create_remote("master", UPSTREAM_REPO)
             origin.fetch()
             repo.create_head(UPSTREAM_BRANCH, origin.refs[UPSTREAM_BRANCH])
             repo.heads[UPSTREAM_BRANCH].set_tracking_branch(
@@ -242,10 +242,10 @@ async def initiate_bot():
             )
             repo.heads[UPSTREAM_BRANCH].checkout(True)
             try:
-                repo.create_remote("origin", UPSTREAM_REPO)
+                repo.create_remote("master", UPSTREAM_REPO)
             except BaseException:
                 pass
-            nrs = repo.remote("origin")
+            nrs = repo.remote("master")
             nrs.fetch(UPSTREAM_BRANCH)
             try:
                 nrs.pull(UPSTREAM_BRANCH)

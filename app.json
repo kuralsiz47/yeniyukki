@@ -124,7 +124,7 @@
     },
     "UPSTREAM_REPO": {
       "description": "If you dont know this, Leave as it is",
-      "value": "https://github.com/kuralsiz47/yeniyukki",
+      "value": "https://github.com/kuralsiz47/yeniyukki.git",
       "required": true
     },
     "UPSTREAM_BRANCH": {
